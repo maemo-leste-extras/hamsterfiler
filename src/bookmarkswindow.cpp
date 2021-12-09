@@ -5,7 +5,9 @@ BookmarksWindow::BookmarksWindow(QString currentPath, QWidget *parent) :
     ui(new Ui::BookmarksWindow)
 {
     ui->setupUi(this);
-    this->setAttribute(Qt::WA_Maemo5StackedWindow);
+#ifdef MAEMO
+    setProperty("X-Maemo-StackedWindow", 1);
+#endif
     this->setAttribute(Qt::WA_DeleteOnClose);
 
     this->currentPath = currentPath;
@@ -56,7 +58,7 @@ void BookmarksWindow::updateVisibility()
 
 void BookmarksWindow::onItemActivated(QListWidgetItem *item)
 {
-    emit locationSelected(item->data(DescriptiveDelegate::DescriptionRole).toString());
+    Q_EMIT locationSelected(item->data(DescriptiveDelegate::DescriptionRole).toString());
 
     this->close();
 }

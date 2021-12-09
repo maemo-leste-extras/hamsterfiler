@@ -33,7 +33,7 @@ private:
     SizeCounter *sizeCounter;
     QFileInfo info;
 
-private slots:
+private Q_SLOTS:
     void onOrientationChanged();
     void onSizeStarted();
     void onSizeUpdated(qint64 size, int dirs = -1, int files = 0);

@@ -1,13 +1,13 @@
 #include "rotator.h"
 
-Rotator* Rotator::instance = NULL;
+Rotator* Rotator::instance = nullptr;
 
 Rotator* Rotator::acquire()
 {
     return instance ? instance : instance = new Rotator();
 }
 
-Rotator::Rotator() : m_slave(NULL), m_policy(Automatic)
+Rotator::Rotator() : m_slave(nullptr), m_policy(Automatic)
 {
     connect(QApplication::desktop(), SIGNAL(resized(int)), this, SLOT(onResized()));
 }
@@ -18,19 +18,19 @@ void Rotator::setPolicy(Orientation policy)
 
     if (m_slave) switch (m_policy) {
         case Automatic:
-            m_slave->setAttribute(Qt::WA_Maemo5AutoOrientation, true);
-            m_slave->setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
-            m_slave->setAttribute(Qt::WA_Maemo5PortraitOrientation, false);
+            //m_slave->setAttribute(Qt::WA_Maemo5AutoOrientation, true);  @TODO
+            //m_slave->setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
+            //m_slave->setAttribute(Qt::WA_Maemo5PortraitOrientation, false);
             break;
         case Landscape:
-            m_slave->setAttribute(Qt::WA_Maemo5AutoOrientation, false);
-            m_slave->setAttribute(Qt::WA_Maemo5LandscapeOrientation, true);
-            m_slave->setAttribute(Qt::WA_Maemo5PortraitOrientation, false);
+            //m_slave->setAttribute(Qt::WA_Maemo5AutoOrientation, false);  @TODO
+            //m_slave->setAttribute(Qt::WA_Maemo5LandscapeOrientation, true);
+            //m_slave->setAttribute(Qt::WA_Maemo5PortraitOrientation, false);
             break;
         case Portrait:
-            m_slave->setAttribute(Qt::WA_Maemo5AutoOrientation, false);
-            m_slave->setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
-            m_slave->setAttribute(Qt::WA_Maemo5PortraitOrientation, true);
+            //m_slave->setAttribute(Qt::WA_Maemo5AutoOrientation, false);  @TODO
+            //m_slave->setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
+            //m_slave->setAttribute(Qt::WA_Maemo5PortraitOrientation, true);
             break;
     }
 
@@ -77,5 +77,5 @@ void Rotator::onResized()
             break;
     }
 
-    emit rotated(w, h);
+    Q_EMIT rotated(w, h);
 }

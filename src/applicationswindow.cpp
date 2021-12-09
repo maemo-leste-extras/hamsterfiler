@@ -5,7 +5,10 @@ ApplicationsWindow::ApplicationsWindow(QWidget *parent, QStringList files) :
     ui(new Ui::ApplicationsWindow)
 {
     ui->setupUi(this);
-    this->setAttribute(Qt::WA_Maemo5StackedWindow);
+
+#ifdef MAEMO
+  setProperty("X-Maemo-StackedWindow", 1);
+#endif
     this->setAttribute(Qt::WA_DeleteOnClose);
 
     ui->applicationList->setItemDelegate(new DescriptiveDelegate(this));

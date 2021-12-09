@@ -29,7 +29,7 @@ private:
 
     QListWidgetItem* findOperationById(int id);
 
-private slots:
+private Q_SLOTS:
     void listOperations();
     void showOperationMenu(const QPoint &pos);
 

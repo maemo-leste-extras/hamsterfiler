@@ -40,7 +40,7 @@ public:
 
     int position();
 
-public slots:
+public Q_SLOTS:
     void openPath(QString path);
 
     void enableHidden(bool enable);
@@ -58,7 +58,7 @@ public slots:
     void openSelected();
     void deleteSelected();
 
-signals:
+Q_SIGNALS:
     void locationChanged(QString path, int oldPosition);
     void loadingStarted();
     void loadingFinished();
@@ -74,7 +74,7 @@ private:
     FileSystemModel *filesystemModel;
     int resumePosition;
 
-private slots:
+private Q_SLOTS:
     void onActivated(QModelIndex index);
     void onLoadingStarted();
     void onLoadingFinished();

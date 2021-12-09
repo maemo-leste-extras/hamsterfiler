@@ -5,7 +5,7 @@
 
 #include <QScrollArea>
 #include <QScrollBar>
-#include <QAbstractKineticScroller>
+//#include <QAbstractKineticScroller>
 #include <QVariant>
 #include <QAbstractButton>
 #include <QPushButton>
@@ -33,12 +33,12 @@ public:
     bool isEditorEnabled();
     void reloadSettings();
 
-public slots:
+public Q_SLOTS:
     void enableEditor();
     void disableEditor();
     void emitLocationFromEditor();
 
-signals:
+Q_SIGNALS:
     void locationSelected(QString path);
 
 private:
@@ -59,7 +59,7 @@ private:
 
     QList<int> scrollPositions;
 
-private slots:
+private Q_SLOTS:
     void onButtonClicked();
     void goUp();
 };

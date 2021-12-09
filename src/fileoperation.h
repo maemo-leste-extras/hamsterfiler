@@ -76,7 +76,7 @@ public:
 
     static QString labelForType(Type type);
 
-signals:
+Q_SIGNALS:
     void progressChanged(int progress, QString source, QString target);
     void stateChanged(int state);
 

@@ -1,3 +1,11 @@
+hamsterfiler (0.6.6-2) unstable; urgency=low
+
+  * Port to Qt5 & maemo-leste
+  * Replaced qmake with CMake
+  * Debian packaging
+
+ -- Sander <sander@sanderf.nl>  Wed, 09 Dec 2021 13:09:20 +0100
+
 hamsterfiler (0.6.6-1) unstable; urgency=low
 
   * Show summary of directory contents in the file details dialog.

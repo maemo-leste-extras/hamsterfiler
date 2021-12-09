@@ -26,10 +26,10 @@ public:
     int width();
     int height();
 
-signals:
+Q_SIGNALS:
     void rotated(int width, int height);
 
-private slots:
+private Q_SLOTS:
     void onResized();
 
 private:

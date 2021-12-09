@@ -17,7 +17,7 @@ void SizeCounter::run()
 
     calculate(root);
 
-    emit sizeUpdated(size, dirs, files);
+    Q_EMIT sizeUpdated(size, dirs, files);
 }
 
 void SizeCounter::abort()
@@ -29,9 +29,9 @@ void SizeCounter::calculate(const QFileInfo &root)
 {
     size += root.size();
 
-    // Do not emit updates too often
+    // Do not Q_EMIT updates too often
     if (time.elapsed() > 1000) {
-        emit sizeUpdated(size, dirs, files);
+        Q_EMIT sizeUpdated(size, dirs, files);
         time.restart();
     }
 
@@ -42,7 +42,7 @@ void SizeCounter::calculate(const QFileInfo &root)
         if (!root.isSymLink()) {
             if (aborted) return;
 
-            foreach (QFileInfo entry, QDir(root.absoluteFilePath()).entryInfoList(QDir::AllEntries | QDir::Hidden | QDir::System | QDir::NoDotAndDotDot))
+            for(const QFileInfo &entry: QDir(root.absoluteFilePath()).entryInfoList(QDir::AllEntries | QDir::Hidden | QDir::System | QDir::NoDotAndDotDot))
                 calculate(entry);
         }
     } else {

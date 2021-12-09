@@ -35,7 +35,7 @@ private:
     void updateVisibility();
     void save();
 
-private slots:
+private Q_SLOTS:
     void onItemActivated(QListWidgetItem *item);
     void showApplicationMenu(const QPoint &pos);
 

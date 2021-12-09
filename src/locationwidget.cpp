@@ -16,7 +16,7 @@ LocationWidget::LocationWidget(QWidget *parent) :
     buttonLayout->setContentsMargins(5, 0, 40, 0);
     buttonLayout->setSpacing(0);
 
-    checkedButton = NULL;
+    checkedButton = nullptr;
 
     // Editor widget
     editorWidget = new QWidget();
@@ -131,7 +131,7 @@ void LocationWidget::emitLocationFromEditor()
         disableEditor();
 
     if (currentPath != locationEdit->text())
-        emit locationSelected(locationEdit->text());
+        Q_EMIT locationSelected(locationEdit->text());
 }
 
 int LocationWidget::setLocation(QString path, int oldPosition)
@@ -226,6 +226,8 @@ void LocationWidget::resizeEvent(QResizeEvent *e)
 
 void LocationWidget::centerCheckedButton()
 {
+  //@TODO: need to port QAbstractKineticScroller from qt4
+#if 0
     if (checkedButton)
         this
         ->property("kineticScroller").value<QAbstractKineticScroller*>()
@@ -233,6 +235,7 @@ void LocationWidget::centerCheckedButton()
                                  checkedButton->x() + (checkedButton->width() - this->viewport()->width()) / 2,
                                  this->horizontalScrollBar()->maximum()),
                           0));
+#endif
 }
 
 QAbstractButton* LocationWidget::createButton(QString name)
@@ -261,10 +264,10 @@ void LocationWidget::onButtonClicked()
         }
     }
 
-    emit locationSelected(path);
+    Q_EMIT locationSelected(path);
 }
 
 void LocationWidget::goUp()
 {
-    emit locationSelected("..");
+    Q_EMIT locationSelected("..");
 }

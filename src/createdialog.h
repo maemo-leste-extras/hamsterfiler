@@ -26,7 +26,7 @@ private:
     QPushButton *fileButton;
     QPushButton *directoryButton;
 
-private slots:
+private Q_SLOTS:
     void create();
 };
 

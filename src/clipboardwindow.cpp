@@ -5,7 +5,11 @@ ClipboardWindow::ClipboardWindow(QString currentPath, QWidget *parent) :
     ui(new Ui::ClipboardWindow)
 {
     ui->setupUi(this);
-    this->setAttribute(Qt::WA_Maemo5StackedWindow);
+
+
+#ifdef MAEMO
+    setProperty("X-Maemo-StackedWindow", 1);
+#endif
     this->setAttribute(Qt::WA_DeleteOnClose);
 
     this->currentPath = currentPath;

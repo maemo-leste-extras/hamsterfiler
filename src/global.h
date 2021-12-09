@@ -11,7 +11,7 @@
 // Browser
 #define DEFAULT_GridView false
 #define DEFAULT_ShowHidden false
-#define DEFAULT_ShowThumbnails false
+#define DEFAULT_ShowThumbnails true
 #define DEFAULT_HideLocationBar false
 #define DEFAULT_PersistentEditor false
 #define DEFAULT_FirstDetail FileSystemModel::Size

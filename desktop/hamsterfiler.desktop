@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=HamsterFiler
+GenericName=hamsterfiler
+Exec=hamsterfiler
+Icon=general_folder
+Terminal=false
+Type=Application
+Categories=System;

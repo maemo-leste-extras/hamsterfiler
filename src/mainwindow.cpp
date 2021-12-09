@@ -4,7 +4,10 @@ MainWindow::MainWindow(QFileInfo startingLocation) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setAttribute(Qt::WA_Maemo5StackedWindow);
+
+#ifdef MAEMO
+    setProperty("X-Maemo-StackedWindow", 1);
+#endif
 
     // Set icons
     ui->locationToggleButton->setIcon(QIcon::fromTheme("keyboard_close"));
@@ -103,7 +106,7 @@ MainWindow::MainWindow(QFileInfo startingLocation) :
     ui->locationLabel->installEventFilter(this);
 
     ui->browserList->viewport()->installEventFilter(this);
-    foreach (QPushButton* button, ui->toolbarWidget->findChildren<QPushButton*>())
+    for(QPushButton* button: ui->toolbarWidget->findChildren<QPushButton*>())
         button->installEventFilter(this);
 
     // Setup rotation handling
@@ -287,12 +290,16 @@ void MainWindow::onLocationChanged(QString path, int oldPosition)
 
 void MainWindow::onLoadingStarted()
 {
-    this->setAttribute(Qt::WA_Maemo5ShowProgressIndicator, true);
+#ifdef MAEMO
+    setProperty("X-Maemo-Progress", true);
+#endif
 }
 
 void MainWindow::onLoadingFinished()
 {
-    this->setAttribute(Qt::WA_Maemo5ShowProgressIndicator, false);
+#ifdef MAEMO
+    setProperty("X-Maemo-Progress", false);
+#endif
 }
 
 // Adapt the layout to the screen oriention

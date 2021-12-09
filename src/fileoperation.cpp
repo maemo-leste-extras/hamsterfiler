@@ -65,7 +65,7 @@ void FileOperation::run()
             job.isDir = true;
 
             // Add entries from the directory
-            foreach (QString entry, QDir(job.source).entryList(QDir::AllEntries | QDir::Hidden | QDir::NoDotAndDotDot)) {
+            for(QString &entry: QDir(job.source).entryList(QDir::AllEntries | QDir::Hidden | QDir::NoDotAndDotDot)) {
                 FileJob subJob;
                 subJob.source = job.source + '/' + entry;
                 subJob.target = job.target + '/' + entry;
@@ -121,7 +121,7 @@ void FileOperation::reportProgress(int progress, QString source, QString target)
     memberMutex.unlock();
 
     if (changed)
-        emit progressChanged(progress, source, target);
+        Q_EMIT progressChanged(progress, source, target);
 }
 
 // Return operation's state
@@ -148,7 +148,7 @@ void FileOperation::reportState(State state)
                 reportProgress(100, jobs.first().source, targetDir.absoluteFilePath());
             else
                 reportProgress(100, tr("%n item(s)", "", jobs.size()), targetDir.absoluteFilePath());
-        emit stateChanged(state);
+        Q_EMIT stateChanged(state);
     }
 }
 
@@ -219,7 +219,7 @@ FileOperation::Action FileOperation::checkOverwrite(QFileInfo source, QFileInfo 
                 case Ask: default:
                     // Ask the user what to do
                     attentionMutex.lock();
-                    emit selfOverwriteSituation();
+                    Q_EMIT selfOverwriteSituation();
 
                     // Wait for the user
                     attentionMutex.lock();
@@ -270,7 +270,7 @@ FileOperation::Action FileOperation::checkOverwrite(QFileInfo source, QFileInfo 
             case Ask: default:
                 // Ask the user what to do
                 attentionMutex.lock();
-                emit overwriteSituation();
+                Q_EMIT overwriteSituation();
 
                 // Wait for the user
                 attentionMutex.lock();
@@ -322,7 +322,7 @@ FileOperation::Action FileOperation::checkError(bool success)
     } else {
         // Ask the user what to do
         attentionMutex.lock();
-        emit errorSituation();
+        Q_EMIT errorSituation();
 
         // Wait for the user
         attentionMutex.lock();
@@ -552,7 +552,7 @@ void FileOperation::runCopyOrMove()
     // Clean up dirs after move-by-copy
     if (type == Move) {
         QDir dir;
-        foreach (const FileJob *job, remainderDirs)
+        for(const FileJob *job: remainderDirs)
             dir.rmdir(job->source);
     }
 
@@ -645,7 +645,7 @@ void FileOperation::silentRemove(QString path)
     QFileInfo info(path);
     if (info.isDir() && !info.isSymLink()) {
         QDir dir(path);
-        foreach (QFileInfo entry, dir.entryInfoList(QDir::AllEntries | QDir::Hidden | QDir::NoDotAndDotDot))
+        for(QFileInfo entry: dir.entryInfoList(QDir::AllEntries | QDir::Hidden | QDir::NoDotAndDotDot))
             silentRemove(entry.absoluteFilePath());
         dir.rmdir(path);
     } else {

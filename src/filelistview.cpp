@@ -127,7 +127,7 @@ void FileListView::onLoadingStarted()
     // Remember the position to restore aftrer repopulating the list
     resumePosition = position();
 
-    emit loadingStarted();
+    Q_EMIT loadingStarted();
 }
 
 void FileListView::onLoadingFinished()
@@ -140,7 +140,7 @@ void FileListView::onLoadingFinished()
                                         toGridPosition(resumePosition) :
                                         resumePosition);
 
-    emit loadingFinished();
+    Q_EMIT loadingFinished();
 }
 
 QString FileListView::currentPath()
@@ -177,14 +177,14 @@ void FileListView::openPath(QString path)
 
         filesystemModel->setLocation(path);
 
-        emit locationChanged(path, position());
+        Q_EMIT locationChanged(path, position());
 
         this->clearSelection();
         this->scrollToTop();
     } else {
         qDebug() << "Opening file" << path;
-        gchar *uri = g_filename_to_uri(path.toUtf8(), NULL, NULL);
-        hildon_mime_open_file(dbus_g_connection_get_connection(dbus_g_bus_get(DBUS_BUS_SESSION, NULL)), uri);
+        gchar *uri = g_filename_to_uri(path.toUtf8(), nullptr, nullptr);
+        hildon_mime_open_file(dbus_g_connection_get_connection(dbus_g_bus_get(DBUS_BUS_SESSION, nullptr)), uri);
         g_free(uri);
     }
 }
@@ -274,7 +274,7 @@ void FileListView::clipSelected()
     if (selection->hasSelection()) {
         QFileInfoList files;
         QModelIndexList indices = selection->selectedIndexes();
-        foreach (QModelIndex index, indices)
+        for(QModelIndex index: indices)
             files.append(index.data(FileSystemModel::PathRole).toString());
 
         Clipboard::get()->add(files);
@@ -288,7 +288,7 @@ void FileListView::openSelected()
 {
     QStringList files;
     QModelIndexList indices = this->selectionModel()->selectedIndexes();
-    foreach (QModelIndex index, indices)
+    for(QModelIndex index: indices)
             files.append(index.data(FileSystemModel::PathRole).toString());
 
     ApplicationsWindow *applications = new ApplicationsWindow(this, files);
@@ -300,7 +300,7 @@ void FileListView::deleteSelected()
     if (ConfirmDialog(this, ConfirmDialog::DeleteSelected).exec() == QMessageBox::Yes) {
         QFileInfoList files;
         QModelIndexList indices = this->selectionModel()->selectedIndexes();
-        foreach (QModelIndex index, indices)
+        for(QModelIndex index: indices)
             files.append(index.data(FileSystemModel::PathRole).toString());
 
         OperationManager::get()->add(new FileOperation(FileOperation::Remove, files));
@@ -312,7 +312,7 @@ void FileListView::showShareDialog()
     // Build a list of files to share, exclude directories
     QStringList files;
     QModelIndexList indices = this->selectionModel()->selectedIndexes();
-    foreach (QModelIndex index, indices) {
+    for(QModelIndex index: indices) {
         QFileInfo info(index.data(FileSystemModel::PathRole).toString());
         if (info.isFile())
             files.append(info.absoluteFilePath());

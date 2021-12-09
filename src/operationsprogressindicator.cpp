@@ -44,12 +44,12 @@ void OperationsProgressIndicator::reload()
     idList.clear();
     progressList.clear();
 
-    foreach (FileOperation *op, OperationManager::get()->queuedOperations) {
+    for(FileOperation *op: OperationManager::get()->queuedOperations) {
         idList.prepend(op->id);
         progressList.prepend(op->progress());
     }
 
-    foreach (FileOperation *op, OperationManager::get()->activeOperations) {
+    for(FileOperation *op: OperationManager::get()->activeOperations) {
         idList.prepend(op->id);
         progressList.prepend(op->progress());
     }

@@ -18,7 +18,7 @@ public:
 
     QStringList files;
 
-private slots:
+private Q_SLOTS:
     void onEmailClicked();
     void onBluetoothClicked();
 };

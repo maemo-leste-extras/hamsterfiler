@@ -22,6 +22,8 @@
 
 int main(int argc, char  *argv[])
 {
+    Q_INIT_RESOURCE(assets);
+
     QApplication::setOrganizationName("hamsterfiler");
     QApplication::setApplicationName("hamsterfiler");
 

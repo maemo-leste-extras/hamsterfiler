@@ -20,7 +20,7 @@ private:
 
     void paintEvent(QPaintEvent *e);
 
-private slots:
+private Q_SLOTS:
     void reload();
     void updateProgress(int id, int progress);
 };

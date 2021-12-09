@@ -16,7 +16,7 @@ public:
     void run();
     void abort();
 
-signals:
+Q_SIGNALS:
     void sizeUpdated(qint64 size, int dirs, int files);
 
 private:

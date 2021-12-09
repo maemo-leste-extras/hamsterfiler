@@ -1,3 +1,5 @@
+#include <gio/gio.h>
+
 #include "filesystemmodel.h"
 
 FileSystemModel::FileSystemModel(QObject *parent) :
@@ -9,7 +11,7 @@ FileSystemModel::FileSystemModel(QObject *parent) :
     watcher = new QFileSystemWatcher(this);
     connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(reload()));
 
-    currentWorker = NULL;
+    currentWorker = nullptr;
 
     firstDetail = Size;
     secondDetail = Date;
@@ -55,16 +57,16 @@ void FileSystemModel::reload()
     // Avoid pointless reloading before the first path is set
     if (currentDir.path() == ".") return;
 
-    emit loadingStarted();
+    Q_EMIT loadingStarted();
 
     // Clear thumbnail jobs
-    foreach (ThumbnailJob *job, thumbnailJobs)
+    for(ThumbnailJob *job: thumbnailJobs)
         job->abort();
     thumbnailJobs.clear();
     currentThumbnailJob = 0;
 
     // Clear buffered items
-    foreach (QStandardItem *item, itemBuffer)
+    for(QStandardItem *item: itemBuffer)
         delete item;
     itemBuffer.clear();
 
@@ -92,7 +94,7 @@ void FileSystemModel::reload()
         currentWorker = worker;
         worker->start();
     } else {
-        emit loadingFinished();
+        Q_EMIT loadingFinished();
     }
 }
 
@@ -112,13 +114,13 @@ void FileSystemModel::onItemReady(QStandardItem *item)
 void FileSystemModel::onListReady()
 {
     if (this->sender() == currentWorker) {
-        foreach (QStandardItem *item, itemBuffer)
+        for(QStandardItem *item: itemBuffer)
             model->appendRow(item);
         itemBuffer.clear();
 
         QTimer::singleShot(0, this, SLOT(processThumbnailJob()));
 
-        emit loadingFinished();
+        Q_EMIT loadingFinished();
     }
 }
 
@@ -140,7 +142,7 @@ void FileSystemModel::onItemUpdated(int index, int role, QString detail)
 void FileSystemModel::onWorkerFinished()
 {
     if (this->sender() == currentWorker) {
-        currentWorker = NULL;
+        currentWorker = nullptr;
     } else {
         workers.removeOne(static_cast<FileSystemModelWorker*>(this->sender()));
     }
@@ -218,7 +220,7 @@ void FileSystemModel::sortByType()
 // Return a thumbnail for the given file, if available, or queue creation
 QIcon FileSystemModel::thumbnail(QFileInfo info, QStandardItem *item)
 {
-    if (gchar* uri = g_filename_to_uri(info.absoluteFilePath().toUtf8(), NULL, NULL)) {
+    if (gchar* uri = g_filename_to_uri(info.absoluteFilePath().toUtf8(), nullptr, nullptr)) {
         if (gchar* file = hildon_thumbnail_get_uri(uri, ThumbnailSize, ThumbnailSize, true)) {
             // Simplified conversion of a URI (but apparently sufficient)
             QString thumbFile = QString::fromUtf8(file).mid(7); // "file://"
@@ -249,7 +251,7 @@ QIcon FileSystemModel::icon(QFileInfo info)
             else
                 return QIcon::fromTheme("general_folder");
         } else {
-            gchar *g_mime = g_content_type_guess(info.fileName().toUtf8(), NULL, 0, NULL);
+            gchar *g_mime = g_content_type_guess(info.fileName().toUtf8(), nullptr, 0, nullptr);
             QString mime = QString(g_mime);
             g_free(g_mime);
 

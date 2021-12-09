@@ -34,7 +34,7 @@ private:
     void listFiles();
     int syncSelection();
 
-private slots:
+private Q_SLOTS:
     void onUnclipClicked();
     void onClearClicked();
 

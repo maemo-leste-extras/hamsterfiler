@@ -25,7 +25,7 @@ public:
     BookmarksWindow(QString currentPath, QWidget *parent);
     ~BookmarksWindow();
 
-signals:
+Q_SIGNALS:
     void locationSelected(QString path);
 
 private:
@@ -35,7 +35,7 @@ private:
 
     void updateVisibility();
 
-private slots:
+private Q_SLOTS:
     void onItemActivated(QListWidgetItem *item);
     void showBookmarkMenu(const QPoint &pos);
 

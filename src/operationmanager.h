@@ -31,7 +31,7 @@ public:
     QList<FileOperation*> queuedOperations;
     QList<FileOperation*> archivalOperations;
 
-signals:
+Q_SIGNALS:
     void stateChanged(int id, int state);
     void progressChanged(int id, int progress, QString source, QString target);
     void queueChanged();
@@ -52,7 +52,7 @@ private:
     void fillQueue();
     int activeLimit;
 
-private slots:
+private Q_SLOTS:
     void onStateChanged(int state);
     void onProgressChanged(int progress, QString source, QString target);
 

@@ -34,7 +34,7 @@ private:
     QString target;
     int operationId;
 
-private slots:
+private Q_SLOTS:
     void onOverwriteTargetChanged(QString target);
     void onSelfOverwriteTargetChanged(QString target);
 

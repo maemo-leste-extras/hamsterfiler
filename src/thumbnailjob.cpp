@@ -6,7 +6,7 @@ ThumbnailJob::ThumbnailJob(const gchar *uri, QStandardItem *item)
 {
     this->uri = g_strdup(uri);
     this->item = item;
-    request = NULL;
+    request = nullptr;
 }
 
 ThumbnailJob::~ThumbnailJob()
@@ -20,18 +20,18 @@ void ThumbnailJob::start()
     request = hildon_thumbnail_factory_request_uri(factory, uri,
                                                    FileSystemModel::ThumbnailSize,
                                                    FileSystemModel::ThumbnailSize,
-                                                   true, NULL,
-                                                   onThumbnailReady, this, NULL);
+                                                   true, nullptr,
+                                                   onThumbnailReady, this, nullptr);
     g_object_unref(factory);
 
     g_free(uri);
-    uri = NULL;
+    uri = nullptr;
 }
 
 void ThumbnailJob::abort()
 {
     if (request) {
-        item = NULL;
+        item = nullptr;
     } else {
         delete this;
     }
@@ -51,7 +51,7 @@ void ThumbnailJob::onThumbnailReady(HildonThumbnailFactory *, const gchar *uri, 
                 job->item->setIcon(QIcon(thumbFile));
         }
 
-        job->request = NULL;
+        job->request = nullptr;
     } else {
         delete job;
     }

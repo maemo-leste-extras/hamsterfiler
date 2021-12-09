@@ -46,7 +46,7 @@ FileDetailsDialog::FileDetailsDialog(QWidget *parent, QFileInfo info) :
 
         sizeCounter->start();
     } else {
-        sizeCounter = NULL;
+        sizeCounter = nullptr;
     }
 
     // Ownership
@@ -74,7 +74,7 @@ FileDetailsDialog::FileDetailsDialog(QWidget *parent, QFileInfo info) :
     // Disable the permissions table if the file does not belong to us
     QString user = getenv("USER");
     if (!(info.owner() == user || user == "root"))
-        foreach (QCheckBox *box, ui->permissionsWidget->findChildren<QCheckBox*>())
+        for(QCheckBox *box: ui->permissionsWidget->findChildren<QCheckBox*>())
             box->setEnabled(false);
 
     ui->nameEdit->setFocus();
@@ -119,7 +119,9 @@ void FileDetailsDialog::onOrientationChanged()
 
 void FileDetailsDialog::onSizeStarted()
 {
-    this->setAttribute(Qt::WA_Maemo5ShowProgressIndicator, true);
+#ifdef MAEMO
+    setProperty("X-Maemo-Progress", true);
+#endif
 }
 
 void FileDetailsDialog::onSizeUpdated(qint64 size, int dirs, int files)
@@ -137,9 +139,11 @@ void FileDetailsDialog::onSizeUpdated(qint64 size, int dirs, int files)
 
 void FileDetailsDialog::onSizeReady()
 {
-    sizeCounter = NULL;
+    sizeCounter = nullptr;
 
-    this->setAttribute(Qt::WA_Maemo5ShowProgressIndicator, false);
+#ifdef MAEMO
+    setProperty("X-Maemo-Progress", false);
+#endif
 }
 
 void FileDetailsDialog::save()

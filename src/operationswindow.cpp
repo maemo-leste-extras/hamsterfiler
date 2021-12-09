@@ -5,7 +5,9 @@ OperationsWindow::OperationsWindow(QWidget *parent) :
     ui(new Ui::OperationsWindow)
 {
     ui->setupUi(this);
-    this->setAttribute(Qt::WA_Maemo5StackedWindow);
+#ifdef MAEMO
+  setProperty("X-Maemo-StackedWindow", 1);
+#endif
     this->setAttribute(Qt::WA_DeleteOnClose);
 
     ui->operationList->setItemDelegate(new OperationDelegate(this));
@@ -38,7 +40,7 @@ QListWidgetItem* OperationsWindow::findOperationById(int id)
             return item;
     }
 
-    return NULL;
+    return nullptr;
 }
 
 void OperationsWindow::onClearClicked()
@@ -55,7 +57,7 @@ void OperationsWindow::listOperations()
     livingOperationsCount = manager->queuedOperations.size() + manager->activeOperations.size();
 
     // List queued operations first
-    foreach (FileOperation *op, manager->queuedOperations) {
+    for(FileOperation *op: manager->queuedOperations) {
         QListWidgetItem *item = new QListWidgetItem();
         item->setData(OperationDelegate::IdRole, op->id);
         item->setData(OperationDelegate::TypeRole, op->type);
@@ -67,7 +69,7 @@ void OperationsWindow::listOperations()
     }
 
     // Active operations second
-    foreach (FileOperation *op, manager->activeOperations) {
+    for(FileOperation *op: manager->activeOperations) {
         QListWidgetItem *item = new QListWidgetItem();
         item->setData(OperationDelegate::IdRole, op->id);
         item->setData(OperationDelegate::TypeRole, op->type);
@@ -79,7 +81,7 @@ void OperationsWindow::listOperations()
     }
 
     // Finally, archival operations
-    foreach (FileOperation *op, manager->archivalOperations) {
+    for(FileOperation *op: manager->archivalOperations) {
         QListWidgetItem *item = new QListWidgetItem();
         item->setData(OperationDelegate::IdRole, op->id);
         item->setData(OperationDelegate::TypeRole, op->type);

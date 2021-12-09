@@ -14,7 +14,7 @@
 
 #include <sys/stat.h>
 #include <hildon-thumbnail/hildon-thumbnail-factory.h>
-#include <libgnomevfs/gnome-vfs-mime-utils.h>
+//#include <libgnomevfs/gnome-vfs-mime-utils.h>
 #include <gio/gio.h>
 
 #include "thumbnailjob.h"
@@ -66,7 +66,7 @@ public:
     static QString dateString(QDateTime date);
     static QString detailString(QFileInfo info, Detail detail);
 
-signals:
+Q_SIGNALS:
     void loadingStarted();
     void loadingFinished();
 
@@ -92,7 +92,7 @@ private:
 
     int currentThumbnailJob;
 
-private slots:
+private Q_SLOTS:
     void reload();
     void processThumbnailJob();
     void onItemReady(QStandardItem *item);
@@ -109,7 +109,7 @@ public:
     FileSystemModelWorker(FileSystemModel *owner);
     void run();
 
-signals:
+Q_SIGNALS:
     void itemReady(QStandardItem*);
     void listReady();
     void itemUpdated(int index, int role, QString value);

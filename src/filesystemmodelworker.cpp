@@ -11,7 +11,7 @@ void FileSystemModelWorker::FileSystemModelWorker::run()
 {
     currentDir.refresh();
     QFileInfoList entries = currentDir.entryInfoList();
-    foreach (QFileInfo entry, entries) {
+    for(QFileInfo entry: entries) {
         QStandardItem *item = new QStandardItem();
 
         item->setText(entry.fileName());
@@ -22,10 +22,10 @@ void FileSystemModelWorker::FileSystemModelWorker::run()
         item->setData(entry.isSymLink(), FileSystemModel::SymLinkRole);
         item->setData(!entry.exists(), FileSystemModel::BrokenRole);
 
-        emit itemReady(item);
+        Q_EMIT itemReady(item);
     }
 
-    emit listReady();
+    Q_EMIT listReady();
 
     if (firstDetail == FileSystemModel::Size)
         updateSize(entries, FileSystemModel::FirstDetailRole);
@@ -45,5 +45,5 @@ void FileSystemModelWorker::updateSize(const QFileInfoList &entries, int role)
         if (entries.at(i).isDir()
         &&  entries.at(i).isReadable()
         &&  dir.cd(entries.at(i).absoluteFilePath()))
-            emit itemUpdated(i, role, tr("%n item(s)", "", dir.count()));
+            Q_EMIT itemUpdated(i, role, tr("%n item(s)", "", dir.count()));
 }

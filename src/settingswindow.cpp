@@ -5,7 +5,9 @@ SettingsWindow::SettingsWindow(QString currentPath, QWidget *parent) :
     ui(new Ui::SettingsWindow)
 {
     ui->setupUi(this);
-    this->setAttribute(Qt::WA_Maemo5StackedWindow);
+#ifdef MAEMO
+    setProperty("X-Maemo-StackedWindow", 1);
+#endif
     this->setAttribute(Qt::WA_DeleteOnClose);
 
     this->currentPath = currentPath;

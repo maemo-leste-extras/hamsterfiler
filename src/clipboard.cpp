@@ -1,6 +1,6 @@
 #include "clipboard.h"
 
-Clipboard* Clipboard::instance = NULL;
+Clipboard* Clipboard::instance = nullptr;
 
 Clipboard* Clipboard::get()
 {
@@ -40,7 +40,7 @@ Clipboard::Clipboard()
 
 Clipboard::~Clipboard()
 {
-    instance = NULL;
+    instance = nullptr;
 
     if (QSettings().value("Clipboard/SaveOnExit", DEFAULT_SaveOnExit).toBool())
         save();

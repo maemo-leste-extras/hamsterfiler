@@ -48,7 +48,7 @@ private:
 
     QMainWindow *findTopWindow();
 
-private slots:
+private Q_SLOTS:
     void onOrientationChanged(int w, int h);
     void onLocationChanged(QString path, int oldPosition);
     void onLoadingStarted();
