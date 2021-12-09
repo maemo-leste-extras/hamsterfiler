@@ -1,0 +1,6 @@
+#!/bin/sh
+
+rm /etc/sudoers.d/hamsterfiler.sudoers
+update-sudoers
+
+exit 0

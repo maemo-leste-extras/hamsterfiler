@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowTitle">
+   <string>Hamster Filer</string>
+  </property>
+  <widget class="QWidget" name="mainWidget">
+   <layout class="QGridLayout" name="mainLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QLabel" name="locationLabel">
+      <property name="visible">
+       <bool>false</bool>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Maximum"/>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="LocationWidget" name="locationWidget"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="FileListView" name="browserList"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QWidget" name="searchWidget">
+      <property name="visible">
+       <bool>false</bool>
+      </property>
+      <layout class="QHBoxLayout" name="searchLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="searchEdit"/>
+       </item>
+       <item>
+        <widget class="QToolButton" name="searchCloseButton"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="OperationsProgressIndicator" name="progressIndicator">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Maximum"/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" rowspan="6">
+     <widget class="QWidget" name="toolbarWidget">
+      <layout class="QVBoxLayout" name="toolbarLayout">
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="locationToggleButton">
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="toolbarSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="selectionToggleButton">
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="clipboardButton"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="bookmarksButton"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="fullscreenToggleButton">
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <widget class="QMenu" name="windowMenu">
+    <addaction name="settingsAction"/>
+    <addaction name="createAction"/>
+    <addaction name="gridAction"/>
+    <addaction name="hiddenAction"/>
+    <addaction name="operationsAction"/>
+    <addaction name="applicationsAction"/>
+    <addaction name="selectAction"/>
+    <addaction name="clipAction"/>
+   </widget>
+   <addaction name="windowMenu"/>
+  </widget>
+  <action name="settingsAction">
+   <property name="text">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="createAction">
+   <property name="text">
+    <string>Create item</string>
+   </property>
+  </action>
+  <action name="applicationsAction">
+   <property name="text">
+    <string>Applications</string>
+   </property>
+  </action>
+  <action name="gridAction">
+   <property name="text">
+    <string>Grid view</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="hiddenAction">
+   <property name="text">
+    <string>Show hidden files</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="operationsAction">
+   <property name="text">
+    <string>File operations</string>
+   </property>
+  </action>
+  <action name="selectAction">
+   <property name="text">
+    <string>Select all</string>
+   </property>
+  </action>
+  <action name="clipAction">
+   <property name="text">
+    <string>Clip</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <customwidgets>
+  <customwidget>
+   <class>LocationWidget</class>
+   <extends>QScrollArea</extends>
+   <header>locationwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FileListView</class>
+   <extends>QListView</extends>
+   <header>filelistview.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>OperationsProgressIndicator</class>
+   <extends>QWidget</extends>
+   <header>operationsprogressindicator.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <connections/>
+</ui>

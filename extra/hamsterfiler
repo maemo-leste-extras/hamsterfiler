@@ -1,0 +1,12 @@
+#!/bin/sh
+
+APPNAME="hamsterfiler"
+ORGNAME="$APPNAME"
+EXEC="/opt/hamsterfiler/hamsterfiler"
+
+if grep -qs "RunAsRoot=true" "$HOME/.config/$ORGNAME/$APPNAME.conf"; then
+    echo "Running as root"
+    sudo run-standalone.sh $EXEC "$@"
+else
+    $EXEC "$@"
+fi

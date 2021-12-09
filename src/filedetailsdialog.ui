@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FileDetailsDialog</class>
+ <widget class="QDialog" name="FileDetailsDialog">
+  <property name="windowTitle">
+   <string>File details</string>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding"/>
+  </property>
+   <layout class="QGridLayout" name="dialogLayout">
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+
+  <widget class="QScrollArea">
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollWidget">
+
+    <layout class="QGridLayout" name="mainLayout">
+     <property name="margin">
+      <number>5</number>
+     </property>
+     <property name="spacing">
+      <number>20</number>
+     </property>
+
+     <item row="0" column="0">
+      <widget class="QLabel" name="nameLabel">
+       <property name="text">
+        <string>Name</string>
+       </property>
+       <property name="alignment">
+        <enum>Qt::AlignRight | Qt::AlignVCenter</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="nameEdit"/>
+     </item>
+
+     <item row="1" column="0">
+      <widget class="QLabel" name="targetLabel">
+       <property name="text">
+        <string>Target</string>
+       </property>
+       <property name="alignment">
+        <enum>Qt::AlignRight</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="targetInfo"/>
+     </item>
+
+     <item row="2" column="0">
+      <widget class="QLabel" name="sizeLabel">
+       <property name="text">
+        <string>Size</string>
+       </property>
+       <property name="alignment">
+        <enum>Qt::AlignRight</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="sizeInfo"/>
+     </item>
+
+     <item row="3" column="0">
+      <widget class="QLabel" name="modificationLabel">
+       <property name="text">
+        <string>Modified</string>
+       </property>
+       <property name="alignment">
+        <enum>Qt::AlignRight</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="modificationInfo"/>
+     </item>
+
+     <item row="4" column="0">
+      <widget class="QLabel" name="ownerLabel">
+       <property name="text">
+        <string>Owner</string>
+       </property>
+       <property name="alignment">
+        <enum>Qt::AlignRight</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="ownerInfo"/>
+     </item>
+
+     <item row="5" column="0" colspan="2">
+      <widget class="QLabel" name="permissionsLabel">
+       <property name="text">
+        <string>Permissions</string>
+       </property>
+       <property name="alignment">
+        <enum>Qt::AlignLeft</enum>
+       </property>
+      </widget>
+     </item>
+
+     <item row="6" column="0" colspan="2">
+      <widget class="QWidget" name="permissionsWidget">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Preferred"/>
+       </property>
+       <layout class="QGridLayout" name="permissionsLayout">
+        <property name="spacing">
+         <number>20</number>
+        </property>
+
+       <item row="1" column="1">
+        <widget class="QLabel" name="permReadLabel">
+         <property name="text">
+          <string>r</string>
+         </property>
+         <property name="alignment">
+          <enum>Qt::AlignHCenter</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="permWriteLabel">
+         <property name="text">
+          <string>w</string>
+         </property>
+         <property name="alignment">
+          <enum>Qt::AlignHCenter</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLabel" name="permExeLabel">
+         <property name="text">
+          <string>x</string>
+         </property>
+         <property name="alignment">
+          <enum>Qt::AlignHCenter</enum>
+         </property>
+        </widget>
+       </item>
+
+       <item row="2" column="0">
+        <widget class="QLabel" name="permUserLabel">
+         <property name="text">
+          <string>User</string>
+         </property>
+         <property name="alignment">
+          <enum>Qt::AlignRight</enum>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred"/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="permGroupLabel">
+         <property name="text">
+          <string>Group</string>
+         </property>
+         <property name="alignment">
+          <enum>Qt::AlignRight</enum>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred"/>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="permOtherLabel">
+         <property name="text">
+          <string>Other</string>
+         </property>
+         <property name="alignment">
+          <enum>Qt::AlignRight</enum>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred"/>
+         </property>
+        </widget>
+       </item>
+
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="permUserReadBox"/>
+       </item>
+       <item row="2" column="2">
+        <widget class="QCheckBox" name="permUserWriteBox"/>
+       </item>
+       <item row="2" column="3">
+        <widget class="QCheckBox" name="permUserExeBox"/>
+       </item>
+
+       <item row="3" column="1">
+        <widget class="QCheckBox" name="permGroupReadBox"/>
+       </item>
+       <item row="3" column="2">
+        <widget class="QCheckBox" name="permGroupWriteBox"/>
+       </item>
+       <item row="3" column="3">
+        <widget class="QCheckBox" name="permGroupExeBox"/>
+       </item>
+
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="permOtherReadBox"/>
+       </item>
+       <item row="4" column="2">
+        <widget class="QCheckBox" name="permOtherWriteBox"/>
+       </item>
+       <item row="4" column="3">
+        <widget class="QCheckBox" name="permOtherExeBox"/>
+       </item>
+
+       </layout>
+      </widget>
+     </item>
+    </layout>
+
+   </widget>
+  </widget>
+
+   </item>
+   <item row="0" column="1">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="standardButtons">
+      <enum>QDialogButtonBox::Save</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

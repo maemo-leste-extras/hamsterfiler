@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingsWindow</class>
+ <widget class="QMainWindow" name="SettingsWindow">
+  <property name="windowTitle">
+   <string>Settings</string>
+  </property>
+  <widget class="QScrollArea" name="mainScroll">
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="mainWidget">
+    <layout class="QVBoxLayout" name="mainLayout">
+     <property name="margin">
+      <number>2</number>
+     </property>
+
+     <item>
+      <widget class="QLabel" name="generalLabel">
+       <property name="text">
+        <string>General</string>
+       </property>
+       <property name="alignment">
+        <enum>Qt::AlignHCenter</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="generalFrame">
+       <property name="frameShape">
+        <enum>QFrame::HLine</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QMaemo5ValueButton" name="startingLocationButton">
+       <property name="text">
+        <string>Starting location</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="saveLocationBox">
+       <property name="text">
+        <string>Save location on exit</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="startInBookmarksBox">
+       <property name="text">
+        <string>Start in bookmarks</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QMaemo5ValueButton" name="orientationButton">
+       <property name="text">
+        <string>Orientation</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="runAsRootBox">
+       <property name="text">
+        <string>Run as root (restart required)</string>
+       </property>
+      </widget>
+     </item>
+
+     <item>
+      <widget class="QLabel" name="browserLabel">
+       <property name="text">
+        <string>Browser</string>
+       </property>
+       <property name="alignment">
+        <enum>Qt::AlignHCenter</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="browserFrame">
+       <property name="frameShape">
+        <enum>QFrame::HLine</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="showThumbnailsBox">
+       <property name="text">
+        <string>Show thumbnails</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="persistentEditorBox">
+       <property name="text">
+        <string>Persistent location editor</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QMaemo5ValueButton" name="firstDetailButton">
+       <property name="text">
+        <string>First detail</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QMaemo5ValueButton" name="secondDetailButton">
+       <property name="text">
+        <string>Second detail</string>
+       </property>
+      </widget>
+     </item>
+
+     <item>
+      <widget class="QLabel" name="clipboardLabel">
+       <property name="text">
+        <string>Clipboard</string>
+       </property>
+       <property name="alignment">
+        <enum>Qt::AlignHCenter</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="clipboardFrame">
+       <property name="frameShape">
+        <enum>QFrame::HLine</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="selectNewItemsBox">
+       <property name="text">
+        <string>Select new items</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="addingClearsSelectionBox">
+       <property name="text">
+        <string>Deselect old items</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="queryingClearsSelectionBox">
+       <property name="text">
+        <string>Deselect used items</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="saveOnExitBox">
+       <property name="text">
+        <string>Save on exit</string>
+       </property>
+      </widget>
+     </item>
+
+     <item>
+      <widget class="QLabel" name="operationsLabel">
+       <property name="text">
+        <string>File operations</string>
+       </property>
+       <property name="alignment">
+        <enum>Qt::AlignHCenter</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="operationsFrame">
+       <property name="frameShape">
+        <enum>QFrame::HLine</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="archiveSizeLayout">
+       <item>
+        <widget class="QLabel" name="archiveSizeLabel">
+         <property name="text">
+          <string>Archive size</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="archiveSizeBox">
+         <property name="maximum">
+          <number>999</number>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred"/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="activeLimiterLayout">
+       <item>
+        <widget class="QCheckBox" name="activeLimiterBox">
+         <property name="text">
+          <string>Activity limiter</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="maxActiveBox">
+         <property name="maximum">
+          <number>999</number>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred"/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

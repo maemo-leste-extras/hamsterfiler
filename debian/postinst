@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "user ALL = NOPASSWD: /usr/bin/run-standalone.sh /opt/hamsterfiler/hamsterfiler" > /etc/sudoers.d/hamsterfiler.sudoers
+echo "user ALL = NOPASSWD: /usr/bin/run-standalone.sh /opt/hamsterfiler/hamsterfiler *" >> /etc/sudoers.d/hamsterfiler.sudoers
+update-sudoers
+
+gtk-update-icon-cache -f /usr/share/icons/hicolor
+
+exit 0

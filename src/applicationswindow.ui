@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ApplicationsWindow</class>
+ <widget class="QMainWindow" name="ApplicationsWindow">
+  <property name="windowTitle">
+   <string>Applications</string>
+  </property>
+  <widget class="QWidget" name="mainWidget">
+   <layout class="QGridLayout" name="mainLayout">
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QListWidget" name="applicationList">
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="emptyInfo">
+      <property name="visible">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>There are no applications</string>
+      </property>
+      <property name="alignment">
+       <enum>Qt::AlignHCenter | Qt::AlignVCenter</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="OperationsProgressIndicator" name="progressIndicator">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Maximum"/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <widget class="QMenu" name="windowMenu">
+    <addaction name="addAction"/>
+    <addaction name="clearAction"/>
+   </widget>
+   <addaction name="windowMenu"/>
+  </widget>
+  <action name="addAction">
+   <property name="text">
+    <string>Add new application</string>
+   </property>
+  </action>
+  <action name="clearAction">
+   <property name="text">
+    <string>Clear applications</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

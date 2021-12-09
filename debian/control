@@ -1,0 +1,101 @@
+Source: hamsterfiler
+Section: user/utilities
+Priority: extra
+Maintainer: Grzegorz Gidel <grg.gdl@gmail.com>
+Build-Depends: debhelper (>= 5), maemo-optify, libqt4-dev, libglib2.0-dev, libgtk2.0-dev, libhildon-thumbnail-dev, libhildonmime-dev
+Standards-Version: 3.8.4
+Homepage: http://talk.maemo.org/showthread.php?t=87152
+XSBC-Bugtracker: http://talk.maemo.org/showthread.php?t=87152
+
+Package: hamsterfiler
+Architecture: armel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A cute little file manager with some advanced features regardless
+XSBC-Maemo-Display-Name: Hamster Filer
+XB-Maemo-Icon-26:
+ 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
+ QP+o/F/b/gelwAplT0dHtQAAAABJRU5ErkJggg==
+
+Package: hamsterfiler-dbg
+Architecture: armel
+Section: debug
+Priority: extra
+Depends:
+    hamsterfiler (= ${binary:Version}),
+Description: Debugging symbols for Hamster Filer

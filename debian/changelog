@@ -1,0 +1,86 @@
+hamsterfiler (0.6.6-1) unstable; urgency=low
+
+  * Show summary of directory contents in the file details dialog.
+  * Show item count for directories in the file list.
+  * Create thumbnails if they do not already exist.
+  * Use thousands separator in the file details dialog.
+  * Simpler file size format.
+  * Fixed a memory leak when frantically reloading the file list.
+  * Prevent unchecking of the current location button.
+
+ -- Grzegorz Gidel <grg.gdl@gmail.com>  Sun, 18 May 2014 21:47:28 +0200
+
+hamsterfiler (0.6.5-1) unstable; urgency=low
+
+  * Fixed the inability to overwrite directories.
+  * Tweaked the layout of the file details dialog.
+
+ -- Grzegorz Gidel <grg.gdl@gmail.com>  Sat, 26 Apr 2014 21:37:06 +0200
+
+hamsterfiler (0.6.4-1) unstable; urgency=low
+
+  * Added location history, currently operable only with keyboards shortcuts (Backspace, Shift+Backspace).
+  * Added persistent mode for the location editor.
+  * Added a note that restart is required for the superuser setting to take effect.
+  * Initially select only the base name in filename input fields.
+  * Unlocked the ability to edit the applications list right before opening a file.
+  * Use a URI when opening a file with its default application, which should improve compatibility with some applications.
+  * Do not show the second location info field in attention dialog for remove operations.
+  * Force dates to be in English for consistency.
+  * Some tweaks in the packaging.
+
+ -- Grzegorz Gidel <grg.gdl@gmail.com>  Sun, 25 Aug 2013 19:47:54 +0200
+
+hamsterfiler (0.6.3-1) unstable; urgency=low
+
+  * Added an option to save the location on exit.
+  * Fixed misdetection of existing entries when creating a new file/directory.
+  * Fixed (yeah, again) sharing via Bluetooth.
+  * Added some error messages to the file details dialog.
+  * Better recovery from an invalid starting location.
+  * Reduced the margin in the settings window to avoid horizontal scrolling with wider fonts.
+
+ -- Grzegorz Gidel <grg.gdl@gmail.com>  Wed, 05 Dec 2012 12:41:41 +0100
+
+hamsterfiler (0.6.2-1) unstable; urgency=low
+
+  * Scrollbar position is restored after selecting a directory from the location bar or performing an operation which causes the file list to be reloaded.
+  * Location bar can be shown/hidden without reloading the file list.
+  * Some example application entries are created on the first run.
+  * Removed all traces of the menu bar of applications window when opening it in application-launching mode.
+  * Enabling multi-select clears the selection to prevent selecting an additional item by mistake.
+  * Loading indicator is shown when opening a directory.
+  * Fixed sharing via Bluetooth.
+  * Fixed the location bar scrolling to an outdated button.
+
+ -- Grzegorz Gidel <grg.gdl@gmail.com>  Fri, 26 Oct 2012 01:28:56 +0200
+
+hamsterfiler (0.6.1-1) unstable; urgency=low
+
+  * Fixed false overwrite warnings and some other problems when handling multiple directory trees.
+  * Fixed multi-select button sometimes not being in the proper state after changing location.
+
+ -- Grzegorz Gidel <grg.gdl@gmail.com>  Tue, 09 Oct 2012 00:38:09 +0200
+
+hamsterfiler (0.6-1) unstable; urgency=low
+
+  * Added a configurable limiter for the number of active operations.
+  * Added a confirmation when deleting files through the clipboard window.
+  * Added keyboard shortcuts for confirmation dialogs.
+  * Added an option to sort files in a few different ways.
+  * Added new file details to select from: nothing, permissions.
+  * Directory listing happens in a separate thread, so GUI is more responsive.
+  * Improved startup time.
+  * Invoking file menu selects the current item, so it is easier to use with multi-select.
+  * Disabled selection for ".." items.
+  * Changed icons for clipboard and multi-select.
+  * Fixed the failure to start as root with no arguments.
+  * Fixed the crash caused by double-clicking a bookmark.
+
+ -- Grzegorz Gidel <grg.gdl@gmail.com>  Mon, 08 Oct 2012 16:54:20 +0200
+
+hamsterfiler (0.5-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Grzegorz Gidel <grg.gdl@gmail.com>  Thu, 27 Sep 2012 03:10:30 +0200
