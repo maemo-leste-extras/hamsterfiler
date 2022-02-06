@@ -1,4 +1,4 @@
-hamsterfiler (0.6.6-2) unstable; urgency=low
+hamsterfiler (0.7-1) unstable; urgency=low
 
   * Port to Qt5 & maemo-leste
   * Replaced qmake with CMake
