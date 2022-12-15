@@ -4,7 +4,6 @@ Priority: extra
 Maintainer: Sander <sander@sanderf.nl>
 Build-Depends: debhelper (>= 10),
     qtbase5-dev,
-    qt5-default,
     ccache,
     cmake,
     libx11-dev,
