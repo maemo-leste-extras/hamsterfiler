@@ -3,8 +3,8 @@ project(hamsterfiler)
 message(STATUS "Initiating compile using CMake ${CMAKE_VERSION}")
 
 set(VERSION_MAJOR "0")
-set(VERSION_MINOR "6")
-set(VERSION_REVISION "7")
+set(VERSION_MINOR "8")
+set(VERSION_REVISION "0")
 set(VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}")
 
 # add `cmake` directory as cmake module path

@@ -6,6 +6,7 @@ OperationsWindow::OperationsWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 #ifdef MAEMO
+  setProperty("X-Maemo-Orientation", 2);
   setProperty("X-Maemo-StackedWindow", 1);
 #endif
     this->setAttribute(Qt::WA_DeleteOnClose);

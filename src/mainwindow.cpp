@@ -6,6 +6,7 @@ MainWindow::MainWindow(QFileInfo startingLocation) :
     ui->setupUi(this);
 
 #ifdef MAEMO
+    setProperty("X-Maemo-Orientation", 2);
     setProperty("X-Maemo-StackedWindow", 1);
 #endif
 

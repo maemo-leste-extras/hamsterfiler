@@ -1,3 +1,9 @@
+hamsterfiler (0.8-1) unstable; urgency=low
+
+  * window: allow portrait
+
+ -- Sander <sander@sanderf.nl>  Wed, 09 Dec 2021 13:09:20 +0100
+
 hamsterfiler (0.7-1) unstable; urgency=low
 
   * Port to Qt5 & maemo-leste
